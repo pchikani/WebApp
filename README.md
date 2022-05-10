@@ -1,6 +1,7 @@
-# Containerized web applications:
+# Containerized Web Applications:
 
 ## Table of Contents:
   ### Projects:
-    [WebApp using reactjs & Django rest framework](./BlogManagement)
+  
+   [WebApp using Reactjs & Django rest framework](BlogManagement)
     
