@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  django_api:
+    build: ./APIProject
+    command: bash -c "python3 ./APIProject/manage.py makemigrations && python3 ./APIProject/manage.py migrate && python3 ./APIProject/manage.py runserver"
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    restart: always
+    network:
+      - mynetwork
+
+
+  reactjs_web:
+    build: ./my-app
+    command: bash -c "npm start"
+    volumes:
+      - .:/code
+    ports:
+      - 3000:3000
+    restart: always
+    network:
+      - mynetwork
+
+  nginx:
+    build: ./web
+    ports:
+      - 80:80
+    depends_on:
+      - django_api
+      - reactjs_web
+    network:
+      - mynetwork
+     
+network:
+  mynetwork:
