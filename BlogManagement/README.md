@@ -1,6 +1,6 @@
 # Microservices architecture based web application with reactjs as frontend and django rest framework as api backend.
 
-##This application allows following functionality:
+## This application allows following functionality:
 
 01. Creating User
 02. Change Password
@@ -10,7 +10,7 @@
 06. Updating blog articles
 07. Deleting blog articles
 
-##Technology Stack:
+## Technology Stack:
 01. reactjs 
 02. python
 03. Django/Django REST Framework
@@ -24,7 +24,7 @@ Swagger used for documenting API
 
 Nginx sits in front of each of the services to abstract all the microservices API endpoints into single one.
 
-##For testing:
+## For testing:
 01. Clone the repo
 02. Run "docker-compose build" while inside the microservices folder
 03. After docker completes all the building stuffs, run "docker-compose up -d" to run each microservices.
