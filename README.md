@@ -2,5 +2,5 @@
 
 ## Table of Contents:
   ### Projects:
-    * [WebApp using reactjs & Django rest framework](#BlogManagement)
+    [WebApp using reactjs & Django rest framework](./BlogManagement)
     
