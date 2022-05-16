@@ -20,6 +20,6 @@ Swagger used for documenting API
 
 
 ## URLS for testing:
-/api/v1/category  -- GET method to list the available products category
-/api/v1/category/<int:id>  -- GET to get specific product category detials , -- PUT to update the specific product category , -- DELETE to delete a specific product category
-/api/v1/category/docs -- Swagger UI 
+* /api/v1/category  -- GET method to list the available products category
+* /api/v1/category/<int:id>  -- GET to get specific product category detials , -- PUT to update the specific product category , -- DELETE to delete a specific product category
+* /api/v1/category/docs -- Swagger UI 
