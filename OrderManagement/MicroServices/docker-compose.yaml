@@ -1,0 +1,66 @@
+version: '3'
+
+services:
+  products_api:
+    build: ./products
+    command: bash -c "python3 ./products/manage.py makemigrations && python3 ./products/manage.py migrate && python3 ./products/manage.py runserver 0.0.0.0:8001"
+    volumes:
+      - .:/code
+    ports:
+      - 8001:8001
+    restart: always
+    depends_on:
+      - mongodb
+    network:
+      - mynetwork
+
+  categorys_api:
+    build: ./category
+    command: bash -c "python3 ./emails/manage.py makemigrations && python3 ./emails/manage.py migrate && python3 ./emails/manage.py runserver 0.0.0.0:8002"
+    volumes:
+      - .:/code
+    ports:
+      - 8002:8002
+    restart: always
+    depends_on:
+      - mongodb
+    network:
+      - mynetwork
+
+  orders_api:
+    build: ./orders
+    command: bash -c "python3 ./orders/manage.py makemigrations && python3 ./orders/manage.py migrate && python3 ./orders/manage.py runserver 0.0.0.0:8003"
+    volumes:
+      - .:/code
+    ports:
+      - 8003:8003
+    restart: always
+    depends_on:
+      - mongodb
+    network:
+      - mynetwork
+
+  mongodb:
+    restart: always
+    image: mongo:3.4.7
+    ports:
+      - 27017:27017
+    command: mongod
+    network:
+      - mynetwork
+
+  nginx:
+    build: ./web
+    ports:
+      - 80:80
+    links:
+      - products_api
+      - orders_api
+      - categorys_api
+    depends_on:
+      - products_api
+      - orders_api
+      - categorys_api
+      
+network:
+  mynetwork:
