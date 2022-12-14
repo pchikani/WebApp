@@ -1,4 +1,4 @@
-# Microservices architecture based web application wth individual modules and database.
+# Django Microservices architecture based web application with individual modules and database.
 
 ## This application allows following functionality:
 
